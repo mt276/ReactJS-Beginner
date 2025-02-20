@@ -1,8 +1,11 @@
 import PropTypes from "prop-types";
-export default function TabButton({ children, onSelect }) {
+
+export default function TabButton({ children, isActive, ...props }) {
   return (
     <li>
-      <button onClick={onSelect}>{children}</button>
+      <button className={isActive ? "active" : undefined} {...props}>
+        {children}
+      </button>
     </li>
   );
 }
@@ -10,4 +13,5 @@ export default function TabButton({ children, onSelect }) {
 TabButton.propTypes = {
   children: PropTypes.string,
   onSelect: PropTypes.func,
+  isActive: PropTypes.bool,
 };
